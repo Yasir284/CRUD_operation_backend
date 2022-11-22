@@ -4,6 +4,7 @@ const app = express();
 require("./config/db").connect();
 const useroutes = require("./routes/userRoutes");
 
+// cors
 const cors = require("cors");
 const corsOptions = {
   credentials: true,
@@ -16,7 +17,6 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-console.log(useroutes);
 app.use("/", useroutes);
 
 module.exports = app;
